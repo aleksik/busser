@@ -13,12 +13,25 @@ class LineSelection extends React.Component {
     }
   }
 
+  onSubmit(e) {
+    e.preventDefault();
+    this.props.selectedLines.length > 0 && this.props.onSubmit();
+  }
+
   render() {
     const { availableLines, selectedLines } = this.props;
     return (
       <div className={this.props.className}>
         <div className="LineSelection">
-          <h1 className="LineSelection-heading">Choose your lines</h1>
+          <div className="LineSelection-heading">
+            <h1>Choose your lines</h1>
+            <button
+              disabled={selectedLines.length === 0}
+              onClick={this.onSubmit.bind(this)}
+            >
+              OK
+            </button>
+          </div>
           <div className="LineSelection-lines">
             {availableLines.map(line => {
               const selected = selectedLines.indexOf(line) > -1;

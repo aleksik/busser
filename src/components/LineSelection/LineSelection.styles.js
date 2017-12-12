@@ -26,15 +26,36 @@ export default App => styled(App)`
   .LineSelection-heading {
     background: ${colors.secondaryDark};
     color: ${colors.textOnSecondary};
-    margin: 0;
-    font-size: 1.5em;
-    padding: .5em;
+    padding: 1em;
     position: sticky;
     top: 0;
+    display: flex;
+    justify-content: space-between;
+
+    h1 {
+      margin: 0;
+      padding: 0;
+      font-size: 1.5em;
+    }
+
+    button {
+      border: 0;
+      background: ${colors.secondaryLight};
+      color: ${colors.textOnSecondary};
+      cursor: pointer;
+      font-size: 1em;
+      font-family: 'Roboto', sans-serif;
+      font-weight: 700;
+
+      &:disabled {
+        opacity: .3;
+        cursor: not-allowed;
+      }
+    }
   }
 
   .LineSelection-lines {
-    padding: 1em;
+    padding: 1em .5em;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;

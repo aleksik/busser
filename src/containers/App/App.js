@@ -6,7 +6,7 @@ import Map from 'components/Map';
 import LineSelection from 'components/LineSelection';
 
 import { selectLine, deselectLine } from 'actions/lines';
-import { showLineSelection, VISIBLE } from 'actions/ui';
+import { showLineSelection, hideLineSelection, VISIBLE } from 'actions/ui';
 
 class App extends Component {
 
@@ -29,6 +29,7 @@ class App extends Component {
               selectedLines={lines.selected}
               onLineSelect={this.props.selectLine}
               onLineDeselect={this.props.deselectLine}
+              onSubmit={this.props.hideLineSelection}
             />
           ) : null
         }
@@ -46,7 +47,8 @@ const mapDispatchToProps = dispatch => (
   bindActionCreators({
     selectLine,
     deselectLine,
-    showLineSelection
+    showLineSelection,
+    hideLineSelection
   }, dispatch)
 );
 
